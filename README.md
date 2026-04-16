@@ -8,9 +8,8 @@ This project implements multiple machine learning models to predict stock prices
 ##  Models Implemented
 
 *  Linear Regression
-*  Logistic Regression
-*  Support Vector Machine (SVM)
-*  K-Nearest Neighbors (KNN)
+*  Random forest
+*  XG boost 
 
 ->Each model is implemented and explained in its respective notebook.
 
