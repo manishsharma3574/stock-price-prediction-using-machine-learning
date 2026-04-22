@@ -5,22 +5,22 @@ This project aims to predict stock prices using regression-based machine learnin
 
 Stock markets are inherently noisy and influenced by multiple external factors, making prediction a challenging task. This project focuses on building reliable baseline models and comparing their performance using standard evaluation metrics.
 
-# Objectives
+ Objectives
 **To implement regression models for stock price prediction*
 **To perform feature engineering on financial data*
 **To compare model performance using statistical metrics*
 **To analyze the strengths and limitations of each model*
-  # Models Used
+   Models Used
 
 **The following regression models are implemented:*
 
-# Linear Regression
+Linear Regression
 A simple and interpretable model used as a baseline for comparison
- # Decision Tree Regressor
+  Decision Tree Regressor
 Captures non-linear relationships but may overfit on training data
- # Random Forest Regressor
+  Random Forest Regressor
 An ensemble model that improves performance and reduces overfitting
- # Feature Engineering
+ Feature Engineering
 
 To improve model performance, several technical indicators and features are created:
 
@@ -32,7 +32,7 @@ To improve model performance, several technical indicators and features are crea
 
 These features help the models capture trends and patterns in stock price movements.
 
-# Evaluation Metrics
+ Evaluation Metrics
 
 The models are evaluated using the following metrics:
 
@@ -42,7 +42,7 @@ The models are evaluated using the following metrics:
 *Measures average absolute difference*
 *R² Score (Coefficient of Determination)*
 *Indicates how well the model explains variance in the data*
-# Results and Analysis
+Results and Analysis
 Model	Observation
 Linear Regression	Provides a good baseline but struggles with non-linearity
 Decision Tree	Captures patterns well but prone to overfitting
