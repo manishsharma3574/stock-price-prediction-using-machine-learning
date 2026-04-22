@@ -1,0 +1,61 @@
+import pandas as pd
+import numpy as np
+
+# =========================
+# LOAD DATA
+df = pd.read_excel("/faang_stock_prices (1).csv.xlsx")   # Fix path if needed
+
+# =========================
+# DATA CLEANING
+df['Date'] = pd.to_datetime(df['Date'])
+
+# Remove invalid values
+df = df[(df['Close'] > 0) & (df['Volume'] > 0)]
+
+# Sort (IMPORTANT)
+df.sort_values(['Ticker', 'Date'], inplace=True)
+df.reset_index(drop=True, inplace=True)
+
+# =========================
+# HANDLE MISSING VALUES (FIXED)
+# Only forward-fill numeric columns → keeps Ticker safe
+df[['Close', 'Volume']] = df.groupby('Ticker')[['Close', 'Volume']].ffill()
+
+# =========================
+# REMOVE OUTLIERS FUNCTION
+def remove_outliers(data, column):
+    Q1 = data[column].quantile(0.25)
+    Q3 = data[column].quantile(0.75)
+    IQR = Q3 - Q1
+
+    lower = Q1 - 1.5 * IQR
+    upper = Q3 + 1.5 * IQR
+
+    return data[(data[column] >= lower) & (data[column] <= upper)]
+
+# Apply per stock
+df = df.groupby('Ticker', group_keys=False).apply(lambda x: remove_outliers(x, 'Close'))
+df = df.groupby('Ticker', group_keys=False).apply(lambda x: remove_outliers(x, 'Volume'))
+
+# FEATURE ENGINEERING
+df['Close_Smoothed'] = (
+    df.groupby('Ticker')['Close']
+    .rolling(window=5)
+    .mean()
+    .reset_index(level=0, drop=True)
+)
+
+
+# FINAL CLEANUP
+df.drop_duplicates(inplace=True)
+df.dropna(inplace=True)
+df.reset_index(drop=True, inplace=True)
+
+# =========================
+# OUTPUT
+# =========================
+print("Final Shape:", df.shape)
+print(df.head())
+
+# Optional save
+df.to_csv("cleaned_stock_data.csv", index=False)
