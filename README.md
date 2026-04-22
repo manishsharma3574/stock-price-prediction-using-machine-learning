@@ -1,56 +1,49 @@
-# stock-price-prediction-using-machine-learning
+📈## Stock Price Prediction using Machine Learning
+📌** Project Overview **
 
-This project implements multiple machine learning models to predict stock prices and analyze their performance.
+This project aims to predict stock prices using regression-based machine learning models. The primary objective is to analyze how different algorithms perform on financial time series data and to understand the impact of feature engineering on prediction accuracy.
 
----
+Stock markets are inherently noisy and influenced by multiple external factors, making prediction a challenging task. This project focuses on building reliable baseline models and comparing their performance using standard evaluation metrics.
 
+🎯# Objectives
+*To implement regression models for stock price prediction
+*To perform feature engineering on financial data
+*To compare model performance using statistical metrics
+*To analyze the strengths and limitations of each model
+🧠 # Models Used
 
-##  Models Implemented
+**The following regression models are implemented:
 
-*  Linear Regression
-*  Random forest
-*  XG boost 
+📊# Linear Regression
+A simple and interpretable model used as a baseline for comparison
+🌳 #Decision Tree Regressor
+Captures non-linear relationships but may overfit on training data
+🌲 #Random Forest Regressor
+An ensemble model that improves performance and reduces overfitting
+🧩 #Feature Engineering
 
-->Each model is implemented and explained in its respective notebook.
+To improve model performance, several technical indicators and features are created:
 
----
+*Simple Moving Average (SMA)
+*Exponential Moving Average (EMA)
+*Relative Strength Index (RSI)
+*Lag Features (previous returns)
+*Daily Returns using percentage change
 
-##  Key Concepts
+These features help the models capture trends and patterns in stock price movements.
 
-* Feature Engineering (SMA, EMA, RSI, etc.)
-* Model comparison
-* Evaluation metrics:
+📏# Evaluation Metrics
 
-  * MSE (Mean Squared Error)
-  * R² Score
-  * Accuracy
+The models are evaluated using the following metrics:
 
----
-
-##  Results Summary
-
-| Model               | Performance             |
-| ------------------- | ----------------------- |
-| Linear Regression   | High R²                 |
-| Logistic Regression | Classification accuracy |
-| SVM                 | Balanced performance    |
-| KNN                 | Depends on K value      |
-
----
-
-##  How to Run
-
-1. Clone the repository
-2. Open any notebook inside `notebooks/`
-3. Run cells step by step
-
----
-
-##  Conclusion
-
-* Model performance depends heavily on feature selection
-* Simple models can perform very well with proper data
-* KNN performance depends on the choice of **K**
-* Experimentation is key to finding the best model
-
----
+*Mean Squared Error (MSE)
+*Measures average squared difference between predicted and actual values
+*Mean Absolute Error (MAE)
+*Measures average absolute difference
+*R² Score (Coefficient of Determination)
+*Indicates how well the model explains variance in the data
+📊# Results and Analysis
+Model	Observation
+Linear Regression	Provides a good baseline but struggles with non-linearity
+Decision Tree	Captures patterns well but prone to overfitting
+Random Forest	Offers better generalization and more stable predictions
