@@ -10,17 +10,17 @@ Stock markets are inherently noisy and influenced by multiple external factors, 
 **To perform feature engineering on financial data*
 **To compare model performance using statistical metrics*
 **To analyze the strengths and limitations of each model*
-   Models Used
+  # Models Used
 
 **The following regression models are implemented:*
 
-Linear Regression
+- Linear Regression -
 A simple and interpretable model used as a baseline for comparison
-  Decision Tree Regressor
+- Decision Tree Regressor -
 Captures non-linear relationships but may overfit on training data
-  Random Forest Regressor
-An ensemble model that improves performance and reduces overfitting
- Feature Engineering
+  - Random Forest Regressor -
+ An ensemble model that improves performance and reduces overfitting
+ - Feature Engineering -
 
 To improve model performance, several technical indicators and features are created:
 
@@ -32,7 +32,7 @@ To improve model performance, several technical indicators and features are crea
 
 These features help the models capture trends and patterns in stock price movements.
 
- Evaluation Metrics
+ - Evaluation Metrics
 
 The models are evaluated using the following metrics:
 
@@ -43,7 +43,7 @@ The models are evaluated using the following metrics:
 *R² Score (Coefficient of Determination)*
 *Indicates how well the model explains variance in the data*
 Results and Analysis
-Model	Observation
+--Model	Observation--
 Linear Regression	Provides a good baseline but struggles with non-linearity
 Decision Tree	Captures patterns well but prone to overfitting
 Random Forest	Offers better generalization and more stable predictions
