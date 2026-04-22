@@ -1,69 +1,124 @@
-## Stock Price Prediction using Machine Learning
-** Project Overview **
+# 📈 Stock Price Prediction using Machine Learning
 
-This project aims to predict stock prices using regression-based machine learning models. The primary objective is to analyze how different algorithms perform on financial time series data and to understand the impact of feature engineering on prediction accuracy.
+This project focuses on predicting stock closing prices using machine learning regression models.
+It leverages historical stock data and engineered features to forecast the next day's price.
 
-Stock markets are inherently noisy and influenced by multiple external factors, making prediction a challenging task. This project focuses on building reliable baseline models and comparing their performance using standard evaluation metrics.
+---
 
- Objectives
-**To implement regression models for stock price prediction*
-**To perform feature engineering on financial data*
-**To compare model performance using statistical metrics*
-**To analyze the strengths and limitations of each model*
-  # Models Used
+##  Models Used
 
-**The following regression models are implemented:*
+The following regression models are implemented and compared:
 
-- Linear Regression -
-A simple and interpretable model used as a baseline for comparison
-- Decision Tree Regressor -
-Captures non-linear relationships but may overfit on training data
-  - Random Forest Regressor -
- An ensemble model that improves performance and reduces overfitting
- - Feature Engineering -
+*  **Linear Regression**
+*  **Random Forest Regressor**
+*  **XGBoost Regressor**
 
-To improve model performance, several technical indicators and features are created:
+---
 
-*Simple Moving Average (SMA)*
-*Exponential Moving Average (EMA)*
-*Relative Strength Index (RSI)*
-*Lag Features (previous returns)*
-*Daily Returns using percentage change*
+##  Key Concepts
 
-These features help the models capture trends and patterns in stock price movements.
+* Time Series Feature Engineering
+* Lag-based features (Lag_2, Lag_3)
+* Technical Indicators:
 
- - Evaluation Metrics
+  * Daily Returns
+  * Rolling Volatility (7-day)
+  * RSI (Relative Strength Index)
+* Model comparison using evaluation metrics
 
-The models are evaluated using the following metrics:
+---
 
-*Mean Squared Error (MSE)*
-*Measures average squared difference between predicted and actual values*
-*Mean Absolute Error (MAE)*
-*Measures average absolute difference*
-*R² Score (Coefficient of Determination)*
-*Indicates how well the model explains variance in the data*
-Results and Analysis
---Model	Observation--
-Linear Regression	Provides a good baseline but struggles with non-linearity
- Key Insights
-*Stock price prediction is highly uncertain and noisy*
-*Feature engineering significantly impacts model performance*
-*Simple models can perform competitively with good features*
-*Ensemble methods like Random Forest improve stability*
-*Overfitting is a common issue in tree-based models*
- Conclusion
+## 📊 Features Used
 
-This project demonstrates that:
+The models are trained using the following features:
 
-*Regression models are appropriate for stock price prediction tasks*
-*Linear Regression serves as a strong baseline*
-*Decision Trees can model complex relationships but require control*
-*Random Forest provides better generalization and robustness*
-*Model performance depends more on feature quality than model complexity*
- #Future Improvements
-*Hyperparameter tuning for better performance*
-*Incorporating more technical indicators*
-*Using deep learning models (LSTM, RNN)*
-*Including external factors such as news sentiment*
-Decision Tree	Captures patterns well but prone to overfitting
-Random Forest	Offers better generalization and more stable predictions
+* `Lag_2` – Closing price from 2 days ago
+* `Lag_3` – Closing price from 3 days ago
+* `RSI_14` – Momentum indicator
+* `Daily_Return` – Percentage change in price
+* `Volatility_7d` – Rolling standard deviation
+* `Volume` – Trading volume
+
+---
+
+## 🎯 Target
+
+* `Target` = Next day closing price (`Close.shift(-1)`)
+
+---
+
+##  Evaluation Metrics
+
+Model performance is evaluated using:
+
+* 📌 **R² Score** (Goodness of fit)
+* 📌 **MAE** (Mean Absolute Error)
+* 📌 **MSE** (Mean Squared Error)
+* 📌 **RMSE** (Root Mean Squared Error)
+
+---
+
+## 📈 Visualization
+
+* Actual vs Predicted price comparison
+* Multi-model comparison graph
+
+---
+
+##  Project Structure
+
+```
+stock-price-prediction/
+│
+├── data/
+│   └── cleaned_stock_data.csv
+│
+├── notebooks/
+│   └── model_training.ipynb
+│
+├── predictions.xlsx
+│
+└── README.md
+```
+
+---
+
+##  How to Run
+
+1. Clone the repository
+2. Install required libraries:
+
+```bash
+pip install pandas numpy scikit-learn xgboost matplotlib
+```
+
+3. Run the Python script or notebook
+4. View model performance and graphs
+
+---
+
+## 📌 Key Observations
+
+* Linear Regression performs well due to strong price continuity
+* Random Forest captures non-linear patterns
+* XGBoost provides balanced performance with error correction
+* Lag features are highly important in stock prediction
+
+---
+
+##  Limitations
+
+* Does not include external factors (news, macroeconomics)
+* Market randomness limits prediction accuracy
+* Based only on historical price data
+
+---
+
+##  Conclusion
+
+* Machine learning models can effectively capture patterns in stock prices
+* Simpler models like Linear Regression can perform surprisingly well
+* Tree-based models provide robustness and flexibility
+* Feature engineering plays a crucial role in performance
+
+---
