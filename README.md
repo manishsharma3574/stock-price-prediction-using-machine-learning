@@ -45,5 +45,25 @@ The models are evaluated using the following metrics:
 Results and Analysis
 --Model	Observation--
 Linear Regression	Provides a good baseline but struggles with non-linearity
+ Key Insights
+*Stock price prediction is highly uncertain and noisy*
+*Feature engineering significantly impacts model performance*
+*Simple models can perform competitively with good features*
+*Ensemble methods like Random Forest improve stability*
+*Overfitting is a common issue in tree-based models*
+ Conclusion
+
+This project demonstrates that:
+
+*Regression models are appropriate for stock price prediction tasks*
+*Linear Regression serves as a strong baseline*
+*Decision Trees can model complex relationships but require control*
+*Random Forest provides better generalization and robustness*
+*Model performance depends more on feature quality than model complexity*
+ #Future Improvements
+*Hyperparameter tuning for better performance*
+*Incorporating more technical indicators*
+*Using deep learning models (LSTM, RNN)*
+*Including external factors such as news sentiment*
 Decision Tree	Captures patterns well but prone to overfitting
 Random Forest	Offers better generalization and more stable predictions
