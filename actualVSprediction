@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#  Excel load
+df = pd.read_excel("/content/predictions.xlsx")
+
+
+df = df.dropna(subset=['Actual'])
+
+# Plot
+plt.figure(figsize=(10,5))
+
+plt.plot(df['Actual'].values, label='Actual', marker='o')
+plt.plot(df['RF_Prediction'].values, label='Predicted (Random Forest)', marker='x')
+
+plt.legend()
+plt.title("Random Forest: Actual vs Predicted")
+plt.xlabel("Samples")
+plt.ylabel("Price")
+
+plt.show()
